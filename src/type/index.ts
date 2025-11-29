@@ -1,0 +1,1 @@
+export type { MiddlewareFunction } from './middleware-function.type';
