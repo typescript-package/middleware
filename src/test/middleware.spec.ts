@@ -7,7 +7,23 @@ middleware.use((args, next) => {
   next();
 });
 
+
+middleware.use((args, next) => {
+  console.log('Middleware executed with args:', args);
+  args[0].newKey = 'newValue';
+  next();
+});
+
 middleware.execute({ key: 'value' });
+
+middleware.use(async (args, next) => {
+  console.log('Async middleware start with args:', args);
+  await new Promise(resolve => setTimeout(resolve, 2000));
+  console.log('Async middleware end');
+  next();
+});
+
+middleware.executeAsync({ key: 'value' });
 
 describe('Middleware', () => {
   it('should be defined', () => {
