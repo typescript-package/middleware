@@ -23,7 +23,7 @@ A **lightweight** TypeScript library for middleware.
 - [Installation](#installation)
 - [Api](#api)
   - Class
-    - `Middleware`
+    - [`Middleware`](#middleware)
 - [Contributing](#contributing)
 - [Support](#support)
 - [Code of Conduct](code-of-conduct)
@@ -43,10 +43,25 @@ npm install @typescript-package/middleware --save-peer
 
 ## Api
 
+### `Middleware`
+
 ```typescript
-import {
-   Middleware
-} from '@typescript-package/middleware';
+import { Middleware } from '@typescript-package/middleware';
+
+const middleware = new Middleware();
+
+middleware.use((args, next) => {
+  console.log('Middleware executed with args:', args);
+  next();
+});
+
+middleware.use((args, next) => {
+  console.log('Middleware executed with args:', args);
+  args[0].newKey = 'newValue';
+  next();
+});
+
+middleware.execute({ key: 'value' });
 ```
 
 ## Contributing
