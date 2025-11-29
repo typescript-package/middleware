@@ -127,21 +127,21 @@ MIT © typescript-package ([license][typescript-package-license])
 
 <!-- This package: typescript-package  -->
   <!-- GitHub: badges -->
-  [typescript-package-badge-issues]: https://img.shields.io/github/issues/typescript-package/descriptor
-  [isscript-package-badge-forks]: https://img.shields.io/github/forks/typescript-package/descriptor
-  [typescript-package-badge-stars]: https://img.shields.io/github/stars/typescript-package/descriptor
-  [typescript-package-badge-license]: https://img.shields.io/github/license/typescript-package/descriptor
+  [typescript-package-badge-issues]: https://img.shields.io/github/issues/typescript-package/middleware
+  [isscript-package-badge-forks]: https://img.shields.io/github/forks/typescript-package/middleware
+  [typescript-package-badge-stars]: https://img.shields.io/github/stars/typescript-package/middleware
+  [typescript-package-badge-license]: https://img.shields.io/github/license/typescript-package/middleware
   <!-- GitHub: badges links -->
-  [typescript-package-issues]: https://github.com/typescript-package/descriptor/issues
-  [typescript-package-forks]: https://github.com/typescript-package/descriptor/network
-  [typescript-package-license]: https://github.com/typescript-package/descriptor/blob/master/LICENSE
-  [typescript-package-stars]: https://github.com/typescript-package/descriptor/stargazers
+  [typescript-package-issues]: https://github.com/typescript-package/middleware/issues
+  [typescript-package-forks]: https://github.com/typescript-package/middleware/network
+  [typescript-package-license]: https://github.com/typescript-package/middleware/blob/master/LICENSE
+  [typescript-package-stars]: https://github.com/typescript-package/middleware/stargazers
 <!-- This package -->
 
 <!-- Package: typescript-package -->
   <!-- npm -->
-  [typescript-package-npm-badge-svg]: https://badge.fury.io/js/@typescript-package%2Fdescriptor.svg
-  [typescript-package-npm-badge]: https://badge.fury.io/js/@typescript-package%2Fdescriptor
+  [typescript-package-npm-badge-svg]: https://badge.fury.io/js/@typescript-package%2Fmiddleware.svg
+  [typescript-package-npm-badge]: https://badge.fury.io/js/@typescript-package%2Fmiddleware
 
 <!-- GIT -->
 [git-semver]: http://semver.org/
