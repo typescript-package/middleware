@@ -23,7 +23,7 @@ export class Middleware<T = any> {
    * @description
    * @type {() => void}
    */
-  #onComplete: () => void = () => {};
+  #onComplete: (args: T[]) => void = () => {};
 
   /**
    * Creates an instance of `ListenersMiddleware`.
@@ -53,18 +53,18 @@ export class Middleware<T = any> {
    */
   public async executeAsync(...args: T[]) {
     this.#index = 0;
-    return new Promise<void>(async resolve => (
+    return new Promise<T[]>(async resolve => (
       await this.#nextAsync(...args),
-      this.onComplete(resolve)
+      this.onComplete(() => resolve(args))
     ));
   }
 
   /**
    * @description
    * @public
-   * @param {() => void} onComplete 
+   * @param {(args: T[]) => void} onComplete 
    */
-  public onComplete(onComplete: () => void): void {
+  public onComplete(onComplete: (args: T[]) => void): void {
     this.#onComplete = onComplete;
   }
 
@@ -85,7 +85,7 @@ export class Middleware<T = any> {
   #next(...args: T[]) {
     this.#index < this.#middleware.length
       ? this.#middleware[this.#index++](args, () => this.#next(...args))
-      : this.#onComplete();
+      : this.#onComplete(args);
   }
 
   /**
@@ -97,6 +97,6 @@ export class Middleware<T = any> {
   async #nextAsync(...args: T[]) {
     this.#index < this.#middleware.length
       ? await this.#middleware[this.#index++](args, () => this.#nextAsync(...args))
-      : this.#onComplete();
+      : this.#onComplete(args);
   }
 }
