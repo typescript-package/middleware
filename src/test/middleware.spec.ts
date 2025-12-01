@@ -1,10 +1,20 @@
 import { Middleware } from "../lib";
 
-const middleware = new Middleware();
+// <{ key: string; newKey?: string }>
+const middleware = new Middleware(
+  (args: ({ key: string; newKey?: string })[], next: () => void) => {
+    console.log('Middleware 0 executed with args:', args);
+    next();
+  },
+  (args: { key: string; anyKey?: string }[], next: () => void) => {
+    console.log('Middleware 00 executed with args:', args);
+    next();
+  }
+);
 
-middleware.use((args, next) => {
+middleware.use(([args], next) => {
   console.log('Middleware 1 executed with args:', args);
-  args[0].newKey = 'newValue';
+  args.newKey = 'newValue';
   next();
 });
 
@@ -14,12 +24,12 @@ middleware.use((args, next) => {
   next();
 });
 
-middleware.execute({ key: 'value' });
+middleware.execute({ key: 'value' }, 2);
 
 // Async
-middleware.use(async (args, next) => {
+middleware.use(async ([args], next) => {
   console.log('Async middleware 1 start with args:', args);
-  args[0].newKey = 'newValue';
+  args.newKey = 'newValue';
   await new Promise(resolve => setTimeout(resolve, 2000));
   console.log('Async middleware end');
   next();
