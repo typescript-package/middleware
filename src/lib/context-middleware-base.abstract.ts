@@ -41,7 +41,7 @@ export abstract class ContextMiddlewareBase<
    * @param {(context: T) => void} onComplete 
    */
   public override onComplete(onComplete: (context: T) => void): void {
-    super.onComplete(() => onComplete);
+    super.onComplete(onComplete);
   }
 
   /**
