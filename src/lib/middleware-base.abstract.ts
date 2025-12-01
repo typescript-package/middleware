@@ -5,8 +5,13 @@ import { MiddlewareFunction } from '../type';
 /**
  * @description The base abstraction for arguments middleware.
  * @export
+ * @abstract
  * @class MiddlewareBase
+ * @typedef {MiddlewareBase}
  * @template [T=any] 
+ * @template [O=T[]] 
+ * @template {Function} [U=MiddlewareFunction<T>] 
+ * @extends {MiddlewareCore<T, O, U>}
  */
 export abstract class MiddlewareBase<
   T = any,
@@ -48,9 +53,9 @@ export abstract class MiddlewareBase<
    * @returns {this} 
    */
   public execute(...args: T[]) {
-    this.#index = 0;
-    this.#next(...args);
-    return this;
+    return this.#index = 0,
+      this.#next(...args),
+      this;
   }
 
   /**
@@ -61,11 +66,10 @@ export abstract class MiddlewareBase<
    * @returns {unknown} 
    */
   public override async executeAsync(...args: T[]): Promise<O> {
-    this.#index = 0;
-    return new Promise<O>(async resolve => (
+    return this.#index = 0,
       await this.#nextAsync(...args),
-      this.onComplete(() => resolve(args as O))
-    ));
+      this.onComplete(() => args as O),
+      args as O;
   }
 
   /**
