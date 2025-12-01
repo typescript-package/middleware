@@ -14,6 +14,4 @@ import { MiddlewareFunction } from '../type';
 export class Middleware<
   T = any,
   U extends Function = MiddlewareFunction<T>
-> extends MiddlewareBase<T, T[], U> {
-
-}
+> extends MiddlewareBase<T, T[], U> {}
