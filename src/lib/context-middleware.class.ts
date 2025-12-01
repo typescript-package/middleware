@@ -7,7 +7,7 @@ import { ContextMiddlewareFunction } from '../type';
  * @export
  * @class ContextMiddleware
  * @template [T=any] 
- * @template {Function} [U=MiddlewareFunction<T>] 
+ * @template {Function} [U=ContextMiddlewareFunction<T>] 
  * @extends {ContextMiddlewareBase<T, U>}
  */
 export class ContextMiddleware<
