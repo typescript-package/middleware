@@ -1,7 +1,7 @@
 // Abstract.
 import { ContextMiddlewareBase } from './context-middleware-base.abstract';
 // Type.
-import { ContextMiddlewareFunction } from '../type';
+import { ContextMiddlewareFunction } from '@typedly/middleware';
 /**
  * @description
  * @export
