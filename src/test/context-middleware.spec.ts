@@ -34,13 +34,13 @@ contextMiddleware.use(async (context, next) => {
   next();
 });
 
-contextMiddleware.use(async (args, next) => {
-  console.log('Async middleware 2 start with args:', args);
+contextMiddleware.use(async (context, next) => {
+  console.log('Async middleware 2 start with context:', context);
   next();
 });
 
-contextMiddleware.onComplete((args) => {
-  console.log('All middlewares completed with args:', args);
+contextMiddleware.onComplete((context) => {
+  console.log('All middlewares completed with context:', context);
 });
 
 contextMiddleware.executeAsync({ req: 'value' });
