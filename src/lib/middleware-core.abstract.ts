@@ -1,5 +1,5 @@
 // Interface.
-import { MiddlewareShape } from "../interface/middleware.shape";
+import { MiddlewareShape } from '@typedly/middleware';
 /**
  * @description
  * @export

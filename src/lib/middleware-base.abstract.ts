@@ -1,7 +1,7 @@
 // Abstract.
 import { MiddlewareCore } from './middleware-core.abstract';
 // Type.
-import { MiddlewareFunction } from '../type';
+import { MiddlewareFunction } from '@typedly/middleware';
 /**
  * @description The base abstraction for arguments middleware.
  * @export
