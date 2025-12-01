@@ -2,4 +2,4 @@
  * @description
  * @export
  */
-export type MiddlewareFunction = (args: any[], next: () => void) => void;
+export type MiddlewareFunction<Args = any> = (args: Args[], next: () => void) => void;

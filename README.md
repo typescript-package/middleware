@@ -16,13 +16,17 @@
 
 A **lightweight** TypeScript library for middleware.
 
-## Features
-
 ## Table of contents
 
+- [Features](#features)
 - [Installation](#installation)
 - [Api](#api)
+  - Abstract
+    - [`ContextMiddlewareBase`](#contextmiddlewarebase)
+    - [`MiddlewareBase`](#middlewarebase)
+    - [`MiddlewareCore`](#middlewarecore)
   - Class
+    - [`ContextMiddleware`](#contextmiddleware)
     - [`Middleware`](#middleware)
 - [Contributing](#contributing)
 - [Support](#support)
@@ -33,6 +37,13 @@ A **lightweight** TypeScript library for middleware.
 - [License](#license)
 - [Related packages](#related-packages)
 
+### Features
+
+- **Core abstraction**: Class for both arguments-based (array) and object-based (context) middleware.
+- **Base abstraction**: Extends core abstraction with functionality to build new arguments-based middlewares.
+- **Concrete class**: Extension of base for initialization.
+- **Context middleware**: Context object-based `ContextMiddleware` base and concrete middleware built on `MiddlewareBase`.
+
 ## Installation
 
 ### 1. Install the package
@@ -42,6 +53,24 @@ npm install @typescript-package/middleware --save-peer
 ```
 
 ## Api
+
+### `ContextMiddlewareBase`
+
+```typescript
+import { ContextMiddlewareBase } from '@typescript-package/middleware';
+```
+
+### `MiddlewareCore`
+
+```typescript
+import { MiddlewareCore } from '@typescript-package/middleware';
+```
+
+### `MiddlewareBase`
+
+```typescript
+import { MiddlewareBase } from '@typescript-package/middleware';
+```
 
 ### `Middleware`
 
@@ -94,6 +123,38 @@ middleware.onComplete((args) => {
 });
 
 middleware.executeAsync({ key: 'value' });
+```
+
+### `ContextMiddleware`
+
+```typescript
+import { ContextMiddleware } from '@typescript-package/middleware';
+
+const contextMiddleware = new ContextMiddleware<{ req: string; res?: string }>(
+  (context, next: () => void) => {
+    console.log('Middleware 0 executed with args:', context);
+    next();
+  },
+  (context, next: () => void) => {
+    console.log('Middleware 00 executed with args:', context);
+    next();
+  }
+);
+
+contextMiddleware.use((context, next) => {
+  console.log('Middleware 1 executed with args:', context);
+  context.req = 'newValue';
+  next();
+});
+
+
+contextMiddleware.use((context, next) => {
+  console.log('Middleware 2 executed with args:', context);
+  next();
+});
+
+contextMiddleware.execute({ req: 'value' });
+
 ```
 
 ## Contributing

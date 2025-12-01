@@ -1,6 +1,6 @@
 {
   "name": "@typescript-package/middleware",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "wwwdev.io <dev@wwwdev.io>",
   "description": "A lightweight TypeScript library for middleware.",
   "license": "MIT",
@@ -27,6 +27,10 @@
     "@typescript-package/middleware"
   ],
   "funding": [
+    {
+      "type": "stripe",
+      "url": "https://donate.stripe.com/dR614hfDZcJE3wAcMM"
+    },
     {
       "type": "individual",
       "url": "https://checkout.revolut.com/pay/048b10a3-0e10-42c8-a917-e3e9cb4c8e29"

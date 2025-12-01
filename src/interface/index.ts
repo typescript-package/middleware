@@ -1,0 +1,1 @@
+export type { MiddlewareShape } from './middleware.shape';
