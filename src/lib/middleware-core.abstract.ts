@@ -9,7 +9,7 @@ import { MiddlewareShape } from "../interface/middleware.shape";
  * @template [Input=any] 
  * @template [Output=void] 
  * @template [Middleware=any] 
- * @implements {MiddlewareShape<Input, Middleware>}
+ * @implements {MiddlewareShape<Input, Output, Middleware>}
  */
 export abstract class MiddlewareCore<
   Input = any,
