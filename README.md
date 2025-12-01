@@ -125,10 +125,10 @@ middleware.onComplete((args) => {
 middleware.executeAsync({ key: 'value' });
 ```
 
-### `MiddlewareContext`
+### `ContextMiddleware`
 
 ```typescript
-import { MiddlewareContext } from '@typescript-package/middleware';
+import { ContextMiddleware } from '@typescript-package/middleware';
 
 const contextMiddleware = new ContextMiddleware<{ req: string; res?: string }>(
   (context, next: () => void) => {
