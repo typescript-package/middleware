@@ -6,8 +6,10 @@ export {
   MiddlewareCore,
   // Base.
   MiddlewareBase,
+  ContextMiddlewareBase,
   // Class.
   Middleware,
+  ContextMiddleware,
 } from './lib';
 // Type.
 export type {
