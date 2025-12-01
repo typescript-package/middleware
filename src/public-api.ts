@@ -17,4 +17,4 @@ export type {
 // Interface.
 export type {
   MiddlewareShape
-} from './interface'
+} from './interface';
