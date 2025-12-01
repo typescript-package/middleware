@@ -11,6 +11,6 @@ export interface MiddlewareShape<Input = any, Output = any, Middleware = any> {
   execute(context: Input): void;
   execute(...args: Input[]): void;
   use(middleware: Middleware): this;
-  executeAsync(context: Input): Promise<Output>; // Or Promise<Output> if defined
-  executeAsync(...args: Input[]): Promise<Output>; // Or Promise<Output> if defined
+  executeAsync(context: Input): Promise<Output>;
+  executeAsync(...args: Input[]): Promise<Output>;
 }
